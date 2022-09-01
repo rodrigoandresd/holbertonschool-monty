@@ -1,8 +1,15 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef _MONTY_H
+#define _MONTY_H
 
-#include<stdio>
+/* importing */
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 
+/* types and structures */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -33,3 +40,12 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+
+/* macros valores constantes */
+
+/* prototypes */
+
+/* macros functions */
+
+#endif /* _MONTY_H */
