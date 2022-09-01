@@ -9,10 +9,12 @@
 
 int main(int argc, char **argv)
 {
-	int gf = 0;
+	
 	FILE *fp = NULL;
-	char *buffer = NULL, *token = NULL, *line[2], arg;
+	char *buffer = NULL, *instruction = NULL;
 	size_t bufsize = 0, line_number = 1;
+	void (*command)();
+	stack_t *stack = NULL;
 	instruction_t gf;
 
 	if (argc != 2)
@@ -28,22 +30,17 @@ int main(int argc, char **argv)
 	}
 	while (getline(&buffer, &bufsize, fp) != -1)
 	{
-		token = strtok(buffer, " \t\n");
-		if (token == NULL)
+		instruction = strtok(buffer, " \t\n");
+		if (instruction == NULL)
 		return (NULL);
-		line[0] = token;
-		if (token != NULL)
-		{
-			arg = strtok(NULL, " \n\t");
-
-			gf = get_op_func(line[0]);
-			if (gf != NULL)
-		}
-		else
-		{
-			dprintf(2, "L%i: unknown instruction %s\n", line_number, line[0]);
-			exit(EXIT_FAILURE);
-		}
+		command = get_op_func(instruction);
+			if (command != NULL)
+				(*command)(&stack, line_number);
+			else
+			{
+				dprintf(2, "L%i: unknown instruction %s\n", line_number, instruction);
+				exit(EXIT_FAILURE);
+			}
 	}
 	return (0);
 }

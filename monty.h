@@ -41,10 +41,10 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
 /* macros valores constantes */
 
 /* prototypes */
+void (*get_op_func(char *instruction))(stack_t **stack, unsigned int line_number)
 
 /* macros functions */
 
