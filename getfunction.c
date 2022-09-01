@@ -2,11 +2,11 @@
 /**
  * get_op_func - function that checks for opcodes and points to
  * the proper function pointer
- * @gf: string passed from main (argv[0])
+ * @inst: string passed from main instruction
  * Return: NULL or pointer to the correct opcode function
  */
 
-void (*get_op_func(char *instruction))(stack_t **stack, unsigned int line_number)
+void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t opc[] = {
 		{"push", push},
@@ -22,7 +22,7 @@ void (*get_op_func(char *instruction))(stack_t **stack, unsigned int line_number
 
 	while (i < 7)
 	{
-		result = strcmp(instruction, opc[i].opcode);
+		result = strcmp(inst, opc[i].opcode);
 		if (result == 0)
 			return (opc[i].f);
 		i++;

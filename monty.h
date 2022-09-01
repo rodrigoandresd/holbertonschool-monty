@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <ctype.h>
+#include <string.h>
 
 /* types and structures */
 
@@ -44,7 +46,7 @@ typedef struct instruction_s
 /* macros valores constantes */
 
 /* prototypes */
-void (*get_op_func(char *instruction))(stack_t **stack, unsigned int line_number)
+void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number);
 
 /* macros functions */
 

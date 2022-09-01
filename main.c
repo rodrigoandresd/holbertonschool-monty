@@ -6,16 +6,13 @@
  * @argv: array of arguments
  * Return: 0 , success
  */
-
 int main(int argc, char **argv)
 {
-	
 	FILE *fp = NULL;
 	char *buffer = NULL, *instruction = NULL;
 	size_t bufsize = 0, line_number = 1;
 	void (*command)();
 	stack_t *stack = NULL;
-	instruction_t gf;
 
 	if (argc != 2)
 	{
@@ -32,15 +29,21 @@ int main(int argc, char **argv)
 	{
 		instruction = strtok(buffer, " \t\n");
 		if (instruction == NULL)
-		return (NULL);
+		{
+			line_number++;
+			free(buffer);
+			continue;
+		}
 		command = get_op_func(instruction);
-			if (command != NULL)
-				(*command)(&stack, line_number);
-			else
-			{
-				dprintf(2, "L%i: unknown instruction %s\n", line_number, instruction);
-				exit(EXIT_FAILURE);
-			}
+		if (command != NULL)
+			(*command)(&stack, line_number);
+		else
+		{
+			dprintf(2, "L%i: unknown instruction %s\n", (int)line_number, instruction);
+			exit(EXIT_FAILURE);
+		}
+		line_number++;
 	}
+	free(buffer);
 	return (0);
 }
