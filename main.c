@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 	}
 	while (getline(&buffer, &bufsize, fp) != -1)
 	{
-		instruction = strtok(buffer, " \t\n");
+		instruction = strtok(buffer, " \t\r\n");
 		if (instruction == NULL)
 		{
 			line_number++;

@@ -56,6 +56,7 @@ void free_stackt(stack_t *stack);
 void exit_fail_check(char *buffer, FILE *fp, stack_t *stack);
 void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 /* macros functions */
 

@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int num;
 	char *token_num = NULL;
 	
-	token_num = strtok(NULL, " \t\n");
+	token_num = strtok(NULL, " \t\r\n");
 
 	num = isnumber(token_num, line_number);
 
@@ -67,4 +67,28 @@ void pint(stack_t **stack, unsigned int line_number)
 		return;
 	}
 	printf("%i\n", (*stack)->n);
+}
+
+/**
+ * pop -  removes the top element of the stack
+ * @stack: pointer to pointer head
+ * @line_number: position of the node that should be deleted
+ * Return: nothing
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = NULL;
+
+	if (*stack == NULL || stack == NULL)
+	{
+		dprintf(2, "L%i: can't pop an empty stack\n", line_number);
+		exit_check = 1;
+		return;
+	}
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp->next = NULL;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(temp);
 }
