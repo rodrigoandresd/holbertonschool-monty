@@ -13,10 +13,11 @@ void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap}
 	};
 	int i = 0, result = 0;
 
-	while (i < 4)
+	while (i < 5)
 	{
 		result = strcmp(inst, opc[i].opcode);
 		if (result == 0)
