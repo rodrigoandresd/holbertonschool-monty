@@ -37,11 +37,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		command = get_op_func(instruction);
-		if (strcmp("push", instruction) != 0)
-		{
-			dprintf(2, "L%i: unknown instruction %s\n", (int)line_number, instruction);
-			exit_fail_push(buffer, fp, stack);
-		}
+
 		if (command != NULL)
 			(*command)(&stack, line_number);
 		else
