@@ -11,10 +11,15 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *newnode = NULL;
 	int num;
 	char *token_num = NULL;
-
-	token_num = strtok(NULL, " \t\n");
-	num = isnumber(token_num, line_number);
 	
+	token_num = strtok(NULL, " \t\n");
+	if (token_num == NULL)
+	{
+		exit_check = 2;
+		return;
+	}
+	num = isnumber(token_num, line_number);
+
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{

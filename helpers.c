@@ -46,6 +46,12 @@ void exit_fail_check(char *buffer, FILE *fp, stack_t *stack)
 		free_stackt(stack);
 		exit(EXIT_FAILURE);
 	}
+		if (exit_check == 2)
+	{
+		fclose(fp);
+		free_stackt(stack);
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
