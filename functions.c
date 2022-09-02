@@ -13,11 +13,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *token_num = NULL;
 	
 	token_num = strtok(NULL, " \t\n");
-	/*if (token_num == NULL)
-	{
-		exit_check = 2;
-		return;
-	}*/
+
 	num = isnumber(token_num, line_number);
 
 	newnode = malloc(sizeof(stack_t));
@@ -53,4 +49,22 @@ void pall(stack_t **stack, unsigned int line_number)
 			printf("%d\n", tmp->n);
 			tmp = tmp->next;
 		}
+}
+
+/**
+ * pint - function that prints the value at the top of the stack
+ * @stack: double pointer, pointer to a pointer to the head node
+ * @line_number: index of the bytecode line where function is called
+ * Return: void
+ */
+
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack)
+	{
+		dprintf(2, "L%i: can't pint, stack empty\n", line_number);
+		exit_check = 1;
+		return;
+	}
+	printf("%i\n", (*stack)->n);
 }

@@ -70,3 +70,21 @@ void free_stackt(stack_t *stack)
 		free(temp);
 	}
 }
+
+/**
+ * exit_fail_push - function that frees and close(fp) before exiting
+ * @buffer: buffer created by getline for each line being read from file
+ * @fp: pointer returned by fopen function
+ * @stack: pointer to head node passed from main
+ * Return: void
+ */
+void exit_fail_push(char *buffer, FILE *fp, stack_t *stack)
+{
+	if (exit_check == 1)
+	{
+		free(buffer);
+		fclose(fp);
+		free_stackt(stack);
+		exit(EXIT_FAILURE);
+	}
+}
