@@ -15,7 +15,7 @@ void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number)
 	};
 	int i = 0, result = 0;
 
-	while (i < 7)
+	while (i < 3)
 	{
 		result = strcmp(inst, opc[i].opcode);
 		if (result == 0)
