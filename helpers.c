@@ -13,7 +13,7 @@ int isnumber(char *str, unsigned int line_number)
 	if (!str)
 	{
 		dprintf(2, "L%i: usage: push integer\n", line_number);
-		exit_check = 1;
+		exit_check = 2;
 		return (-1);
 	}
 	if (str[0] == '-')
@@ -22,7 +22,7 @@ int isnumber(char *str, unsigned int line_number)
 		if (!isdigit(str[i]))
 		{
 			dprintf(2, "L%i: usage: push integer\n", line_number);
-			exit_check = 1;
+			exit_check = 2;
 			return (-1);
 		}
 	n = atoi(str);
