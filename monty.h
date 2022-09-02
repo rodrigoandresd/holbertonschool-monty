@@ -1,6 +1,10 @@
 #ifndef _MONTY_H
 #define _MONTY_H
 
+
+/* globlal variables*/
+extern int exit_check;
+
 /* importing */
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,9 +47,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* macros valores constantes */
 
 /* prototypes */
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+int isnumber(char *str, unsigned int line_number);
+void free_stackt(stack_t *stack);
+void exit_fail_check(char *buffer, FILE *fp, stack_t *stack);
 void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number);
 
 /* macros functions */
