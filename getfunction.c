@@ -11,12 +11,12 @@ void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number)
 	instruction_t opc[] = {
 		{"push", push},
 		{"pall", pall},
-		{"pint", pint},
+		/*{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-		{NULL, NULL}
+		{NULL, NULL}*/
 	};
 	int i = 0, result = 0;
 
@@ -27,5 +27,6 @@ void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number)
 			return (opc[i].f);
 		i++;
 	}
+	exit_check = 1;
 	return (NULL);
 }

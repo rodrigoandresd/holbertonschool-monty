@@ -1,5 +1,7 @@
 #include "monty.h"
 
+int exit_check = 0;
+
 /**
  * main - monty program
  * @argc: total number of argument
@@ -42,8 +44,9 @@ int main(int argc, char **argv)
 			dprintf(2, "L%i: unknown instruction %s\n", (int)line_number, instruction);
 			exit(EXIT_FAILURE);
 		}
+		exit_fail_check(buffer, fp, stack);
 		line_number++;
 	}
-	free(buffer);
+	free(buffer), fclose(fp), free_stackt(stack);
 	return (0);
 }

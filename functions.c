@@ -1,15 +1,33 @@
 #include "monty.h"
 
 /**
- * push - push function
- * @stack: head
+ * push - function adds a new node at the beginning of the stack
+ * @stack: pointer to pointer head
  * @line_number: line_number
  * Return: Always 0 (Success)
  */
-
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *newnode = NULL;
+	int num;
+	char *token_num = NULL;
+
+	token_num = strtok(NULL, " \t\n");
+	num = isnumber(token_num, line_number);
+	
+	newnode = malloc(sizeof(stack_t));
+	if (newnode == NULL)
+	{
+		dprintf(2, "Error: malloc failed\n");
+		exit_check = 1;
+		return;
+	}
+	newnode->n = num;
+	newnode->prev = NULL;
+	if (*stack != NULL)
+		(*stack)->prev = newnode;
+	newnode->next = *stack;
+	*stack = newnode;
 }
 
 /**
