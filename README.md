@@ -5,7 +5,7 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 
 ---
 
-General
+## General
 
 * What do LIFO and FIFO mean
 * What is a stack, and when to use it
