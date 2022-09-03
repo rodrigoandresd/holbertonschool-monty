@@ -15,6 +15,7 @@ void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number)
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
+		{"nop", nop},
 	};
 	int i = 0, result = 0;
 
