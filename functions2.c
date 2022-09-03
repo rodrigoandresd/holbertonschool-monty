@@ -79,3 +79,32 @@ void mul(stack_t **stack, unsigned int line_number)
 	temp->n *= (*stack)->n;
 	pop(stack, line_number);
 }
+
+/**
+ * mod_ - function that computes the rest of the division of
+ * the second top element of the stack by the top element of the stack
+ * @stack: double pointer, pointer to a pointer to the stack node
+ * @line_number: index of the bytecode line where function is called
+ * Return: void
+ */
+
+void mod(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp = NULL;
+
+	if (!(*stack) || !((*stack)->next))
+	{
+		dprintf(2, "L%i: can't mod, stack too short\n", line_number);
+		exit_check = 1;
+		return;
+	}
+	if ((*stack)->n == 0)
+	{
+		dprintf(2, "L%i: division by zero\n", line_number);
+		exit_check = 1;
+		return;
+	}
+	temp = (*stack)->next;
+	temp->n %= (*stack)->n;
+	pop(stack, line_number);
+}
