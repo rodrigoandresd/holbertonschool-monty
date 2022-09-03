@@ -19,3 +19,17 @@ void add(stack_t **stack, unsigned int line_number)
 	temp->n += (*stack)->n;
 	pop(stack, line_number);
 }
+
+/**
+ * nop - function that "doesn’t do anything"
+ * @stack: double pointer, pointer to a pointer to the head node
+ * @line_number: index of the bytecode line where function is called
+ * Return: void
+ */
+
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+}
+
