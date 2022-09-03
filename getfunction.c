@@ -16,10 +16,11 @@ void (*get_op_func(char *inst))(stack_t **stack, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
 	};
 	int i = 0, result = 0;
 
-	while (i < 7)
+	while (i < 8)
 	{
 		result = strcmp(inst, opc[i].opcode);
 		if (result == 0)
