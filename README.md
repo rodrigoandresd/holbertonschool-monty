@@ -13,3 +13,8 @@ Monty 0.98 is a scripting language that is first compiled into Monty byte codes 
 * What are the common implementations of stacks and queues
 * What are the most common use cases of stacks and queues
 * What is the proper way to use global variables
+
+## Authors
+[Rodrigo Andres Duque](https://github.com/rodrigoandresd) - Github
+
+[Avelino Carvajal](https://github.com/AvelinoC5) - Github
