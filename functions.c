@@ -11,7 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *newnode = NULL;
 	int num;
 	char *token_num = NULL;
-	
+
 	token_num = strtok(NULL, " \t\r\n");
 
 	num = isnumber(token_num, line_number);
