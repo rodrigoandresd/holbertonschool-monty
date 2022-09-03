@@ -3,6 +3,7 @@
 /**
  * add - function that returns the sum of all the data (n) of a LL
  * @stack: pointer to head
+ * @line_number: line_number
  * Return: sum of all the data (n)
  */
 void add(stack_t **stack, unsigned int line_number)
